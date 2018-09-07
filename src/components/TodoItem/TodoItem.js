@@ -5,6 +5,12 @@ import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
 
 class TodoItem extends Component {
+
+    shouldComponentUpdate(nextProps, nextState) {
+        const result = this.props.done !== nextProps.done;
+        return result;
+    }
+
     render() {
         const {done, children, onToggle, onRemove} = this.props;
         return (
